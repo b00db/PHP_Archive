@@ -2,7 +2,7 @@
 
 ## Contents
 
-### [1. PHP? JSP? ASP?](#1-php-jsp-asp-1)
+### [1. PHP vs. JSP vs. ASP](#1-php-jsp-asp)
 ### [2. PHP 웹 구동방식](#2-php-웹-구동-원리)
 ### [3. PHP 시작과 끝](#3-php의-시작과-끝)   
 ### [4. PHP 주석처리](#4-php에서의-주석처리)
