@@ -2,14 +2,16 @@
 
 ## Contents
 
-### [1. PHP? JSP? ASP?](#1-php-jsp-asp)
+### [1. PHP? JSP? ASP?](#1-php-jsp-asp-1)
 ### [2. PHP 웹 구동방식](#2-php-웹-구동-원리)
-### [3. PHP의 시작과 끝](#3-php의-시작과-끝)   
-### [4. PHP에서의 주석처리](#4-php에서의-주석처리)
-### [5. 출력문](#5-출력문)
-### [6. 스크립트 중단](#6-스크립트-중단)
-### [7. PHP와 HTML의 관계](#7-php와-html의-관계)
-### [8. 자료형(Data Type)](#8-자료형data-type)
+### [3. PHP의 시작과 끝](#3-phpec9d98-ec8b9cec9e91eab3bc-eb819d-1)   
+### [4. PHP에서의 주석처리](#4-phpec9790ec849cec9d98-eca3bcec849decb298eba6ac-1)
+### [5. 출력문](#5-ecb69ceba0a5ebacb8-1)
+### [6. 스크립트 중단](#6-ec8aa4ed81aceba6bded8ab8-eca491eb8ba8-1)
+### [7. PHP와 HTML의 관계](#7-phpec9980-htmlec9d98-eab480eab384-1)
+### [8. 자료형(Data Type)](#8-ec9e90eba38ced9895data-type-1)
+### [9. 변수(Variables)](#9-변수-variables)
+### [10. 상수(Constants)](#10-상수-constants--변하지-않는-값)
 
 
 <br><br>
@@ -424,6 +426,91 @@ $fruits = [
 
 -----
 
+## 9. 변수 (Variables)
+
+```
+- Define Variables
+
+$message = 'Hello, world';  // String
+$count = 0;  // Int
+$pi = 3.14;  // Double
+$isVisited = false;  // Boolean
+$temp = null;  // Null 
+
+
+- Using Variables
+
+$message;
+
+
+- Using Variables in String
+
+// The message is Hello, world
+"The message is $message";
+"The message is {$message}";
+
+// The message is {$message}
+'The message is {$message}';
+
+
+-> 변수와 함께 사용하고 싶을 땐, 큰 따옴표(")와!
+
+
+- Here Doc, Now Doc : 여러줄의 문자열을 처리할 때 용이
+
+* Here Doc : 변수 인지 가능
+
+echo <<<HTML
+<html>
+    <head>
+        <title>$message</title>
+    </head>
+</html>
+HTML;
+
+/*
+<html>
+    <head>
+        <title>Hello, world</title></title>
+    </head>
+</html>
+*/
+
+
+* Now Doc : 변수 인지 불가
+
+echo <<<'HTML'
+<html>
+    <head>
+        <title>$message</title>
+    </head>
+</html>
+HTML;
+
+/*
+<html>
+    <head>
+        <title>$message</title>
+    </head>
+</html>
+*/
+
+
+- Free : 메모리에 할당된 변수를 리로드
+
+unset($message)
+
+
+- 가변 변수 (Variable variables)
+
+$varName = 'message';
+// $message = 'Hello, world';
+$$varName = 'Hello, world';
+${$varName} = 'Hello, world';
+
+-> 필요할 때만 사용하기!
+```
+
 
 <br><br>
 
@@ -432,6 +519,26 @@ $fruits = [
 <br>
 
 -----
+
+## 10. 상수 (Constants) : 변하지 않는 값
+
+```
+- Define Constants
+
+const CONSTANT = 'Hello, World';  // 요즘 방식
+define('CONSTANT', 'Hello, World');  // 옛날 방식
+
+
+* Magic Constants : PHP 내부에 미리 정의 되어있는 상수
+
+__FILE__;  // 현재 파일의 전체경로와 파일명을 반환
+__LINE__;  // 파일의 현재 줄 번호
+__DIR__;  // 현재 파일이 속해있는 디렉토리를 반환
+__FUNCTION__;  // 정의된 그대로의 함수명 반환 (대소문자 구분)
+__CLASS__;  // 정의된 그대로의 클래스명 반환 (대소문자 구분)
+__METHOD__;  // 정의된 그대로의 메소드명 반환 (대소문자 구분)
+__NAMESPACE__;  // 현재 네임스페이스의 이름 (대소문자 구분) 이 상수는 컴파일을 할 경우에 정의됨
+```
 
 
 <br><br>
