@@ -4,14 +4,14 @@
 
 ### [1. PHP? JSP? ASP?](#1-php-jsp-asp-1)
 ### [2. PHP 웹 구동방식](#2-php-웹-구동-원리)
-### [3. PHP의 시작과 끝](#3-phpec9d98-ec8b9cec9e91eab3bc-eb819d-1)   
-### [4. PHP에서의 주석처리](#4-phpec9790ec849cec9d98-eca3bcec849decb298eba6ac-1)
-### [5. 출력문](#5-ecb69ceba0a5ebacb8-1)
-### [6. 스크립트 중단](#6-ec8aa4ed81aceba6bded8ab8-eca491eb8ba8-1)
-### [7. PHP와 HTML의 관계](#7-phpec9980-htmlec9d98-eab480eab384-1)
-### [8. 자료형(Data Type)](#8-ec9e90eba38ced9895data-type-1)
-### [9. 변수(Variables)](#9-변수-variables)
-### [10. 상수(Constants)](#10-상수-constants--변하지-않는-값)
+### [3. PHP 시작과 끝](#3-php의-시작과-끝)   
+### [4. PHP 주석처리](#4-php에서의-주석처리)
+### [5. PHP 출력문](#5-출력문)
+### [6. PHP 스크립트 중단](#6-스크립트-중단)
+### [7. PHP와 HTML 관계](#7-php와-html의-관계)
+### [8. PHP 자료형(Data Type)](#8-자료형data-type)
+### [9. PHP 변수(Variables)](#9-변수-variables)
+### [10. PHP 상수(Constants)](#10-상수-constants--변하지-않는-값)
 
 
 <br><br>
@@ -20,7 +20,7 @@
 
 -----
 
-## 1. PHP? JSP? ASP?   
+## 1.  PHP? JSP? ASP?   
 
 ```
 - PHP (Personal Hypertext Preprocessor)   
@@ -76,7 +76,7 @@ ASP의 장점은 적당히 빠른 생산성과 편리성을 들 수 있으며 MS
 
 -----
 
-## 2. PHP 웹 구동 원리
+## 2.  PHP 웹 구동 원리   
 
 ### 웹 DB 프로그래밍 언어와 HTML의 차이점 
 
@@ -116,7 +116,7 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -----
 
-## 3. PHP의 시작과 끝
+## 3.  PHP의 시작과 끝    
 
 ### - php의 시작
 
@@ -159,7 +159,7 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 -----
 
 
-## 4. PHP에서의 주석처리
+## 4.  PHP에서의 주석처리   
 
 ### - 한 줄 주석
 
@@ -188,7 +188,7 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -----
 
-## 5. 출력문
+## 5.  출력문   
 
 ```
 - echo
@@ -206,7 +206,7 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -----
 
-## 6. 스크립트 중단
+## 6.  스크립트 중단   
 
 ```
 - exit
@@ -224,7 +224,7 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -----
 
-## 7. PHP와 HTML의 관계
+## 7.  PHP와 HTML의 관계   
 
 HTML 안에 PHP 태그를 첨부할 수 있다.
 PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코드를 해석하고, 닫기 태그 이후에 작성된 태그는 그냥 넘겨주기 때문에 PHP 태그 영역과 외부는 완전히 독립적으로 존재하게 된다.
@@ -253,7 +253,7 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 
 -----
 
-## 8. 자료형(Data Type)
+## 8.  자료형(Data Type)   
 
 - String Type : 문자열형 변수
 
@@ -426,7 +426,7 @@ $fruits = [
 
 -----
 
-## 9. 변수 (Variables)
+## 9.  변수 (Variables)   
 
 ```
 - Define Variables
@@ -520,7 +520,7 @@ ${$varName} = 'Hello, world';
 
 -----
 
-## 10. 상수 (Constants) : 변하지 않는 값
+## 10.  상수 (Constants) : 변하지 않는 값   
 
 ```
 - Define Constants
