@@ -9,7 +9,7 @@
 - [출력문](#출력문)
 - [스크립트 중단](#스크립트-중단)
 - [PHP와 HTML의 관계](#php와-html의-관계)
-
+- [자료형(Data Type)](#자료형data-type)
 
 <br><br>
 
@@ -248,3 +248,176 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 
 -----
 
+## 자료형(Data Type)
+
+- String Type : 문자열형 변수
+
+```
+'Hello, world'
+"Hello, world"
+```
+
+
+- Null Type : 값이 할당이 안된 상태(임시값)
+
+-> Type Casting 불가능
+
+
+- Integer Type (Int) : 정수형 변수
+
+```
+10;  // Decimal
+0777;  // Octal
+0xF;  // Hexdecimal
+0b0101;  // Binary
+```
+
+
+- Floating point number Type (float, double) : 실수형 변수
+
+```
+1.234;
+1.2e3;
+7E-3;
+```
+
+
+- Boolean Type
+
+```
+true;
+false;
+```
+
+
+- Array (배열) : 동일한 이름의 변수를 여러 개 저장
+
+```
+- Define Array
+
+$fruits = [
+    'apple',
+    'banana',
+    'grape'
+];
+
+$fruits = array('apple', 'banana', 'grape');
+
+
+- Define Array with key
+
+$fruits = [
+    0 => 'apple',
+    'fruit' => 'banana'
+];
+
+
+- Destructuring : 비구조화 할당
+
+list($fruit) = $fruits;  // apple
+[$fruit] = $fruits;
+[0 => $fruit] = $fruits;
+
+list(, $fruit) = $fruits;  // banana
+[, $fruit] = $fruits;
+['fruit' => $fruit] = $fruits
+```
+
+** CRUD
+
+- Insert
+
+```
+$fruits[] = 'orange';
+$fruit[3] = 'orange';
+
+/*
+array(4) {
+    [0] => "apple"
+    [1] => "banana"
+    [2] => "grape"
+    [3] => "orange"
+}
+*/
+```
+
+
+- Select
+
+```
+echo $fruit[3];  // orange
+```
+
+
+- Update
+
+```
+$fruit[3] = 'melon';
+
+echo $fruit[3];  // melon
+```
+
+
+- Delete
+
+```
+unset($fruits[3]);
+
+echo $fruits[3];  // Error: Undefine offset
+```
+
+
+** Spread Operator in Array Expression (PHP 7.4 이상)
+
+```
+$fruits = [
+    'apple',
+    'banana',
+    'orange'
+];
+
+// 가장 위에 있는 배열과 가장 밑에 있는 배열은 같은 배열입니다.
+
+$fruits = [
+    'apple'
+];
+
+$fruits = [
+    ...$fruits,
+    'banana',
+    'orange'
+];
+
+
+-> 배열의 분리, 병합 등에 유리합니다.
+```
+
+### Type Casting (데이터형 변환)
+
+```
+(string) 10;  // "10"
+(string) true;  // "1"
+(string) false;  // ""
+(string) 1.234;  // "1.234"
+
+(int) 'Hello, world';  // 0
+(int) '50x';  // 50
+(int) ture;  // 1
+(int) false;  // 0
+(int) null;  // 0
+
+(bool) 10;  // true
+(bool) [];  // false
+(bool) '';  // false
+(bool) null;  // false
+```
+
+
+
+<br><br>
+
+[목차로 되돌아가기](#목차)
+
+<br>
+
+-----
