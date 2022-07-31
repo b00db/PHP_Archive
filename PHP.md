@@ -16,8 +16,8 @@
 ### [12-1. PHP 조건문 1 _ IF문](#12-1-조건문if--elseif-else)
 ### [12-2. PHP 조건문 2 _ SWITCH문](#12-2-조건문-switch--case-문)
 ### [12-3. PHP 조건문 3 _ 삼항연산자](#12-3-ternary-operator-삼항연산자)
-### [13-1. PHP 반복문 1](#13-1-반복문for-foreach)
-### [13-2. PHP 반복문 2](#13-2-반복문while-do--while)
+### [13-1. PHP 반복문 1 _ FOR문과 FOREACH문](#13-1-반복문for-foreach)
+### [13-2. PHP 반복문 2 _ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
 
 
 <br><br>
