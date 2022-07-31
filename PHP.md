@@ -13,6 +13,11 @@
 ### [9. PHP 변수(Variables)](#9-변수-variables)
 ### [10. PHP 상수(Constants)](#10-상수-constants--변하지-않는-값)
 ### [11. PHP 연산자(Operators)](#11-연산자-operators)
+### [12-1. PHP 조건문 1 _ IF문](#12-1-조건문if--elseif-else)
+### [12-2. PHP 조건문 2 _ SWITCH문](#12-2-조건문-switch--case-문)
+### [12-3. PHP 조건문 3 _ 삼항연산자]
+### [13-1. PHP 반복문 1](#13-1-반복문for-foreach)
+### [13-2. PHP 반복문 2](#13-2-반복문while-do--while)
 
 
 <br><br>
@@ -684,6 +689,67 @@ $count += 1;  // $count = $count + 1;,  1
 
 -----
 
+## 12-1. 조건문(if ~ elseif, else)
+
+```
+* false 참고 : [], '', false, 0, null
+
+- if 문
+
+if (true) {
+    ehco 'Hello, world';
+}  // Hello, world
+
+// Alternative Syntax
+if (true):
+    ehco 'Hello, world';
+endif;
+
+
+- if ~ else 문
+
+if (false) {
+    ehco 'Hello, world';
+} else {
+    ehco 'Bye';
+}  // Bye
+
+// Alternative Syntax
+if (false):
+    ehco 'Hello, world';
+else:
+    ehco 'Bye';
+endif;
+
+
+- 다중 if 문(if ~ elseif ~ else 문)
+
+if (false) {
+    ehco 'Hello, world';
+} elseif (true) {
+    ehco 'Who are you?';
+} else {
+    ehco 'Bye';
+}  // Who are you?
+
+// Alternative Syntax
+if (false):
+    ehco 'Hello, world';
+elseif (true):
+    ehco 'Who are you?';
+else:
+    ehco 'Bye';
+endif;
+
+
+- Define Variables in If Context
+: If문에서 변수 할당
+
+if ($message = 'Hello, world') {
+    echo $message;
+}  // Hello, world
+
+```
 
 <br><br>
 
@@ -693,6 +759,52 @@ $count += 1;  // $count = $count + 1;,  1
 
 -----
 
+## 12-2. 조건문 (Switch ~ case 문)
+
+```
+- Switch ~ case 문
+
+$context = 1;
+
+switch ($context) {
+    case 1:
+        ehco 'Hello, world';
+        break;
+    case 2:
+        ehco 'Who are you?';
+        break;
+    default:
+        ehco 'Bye';
+}  // Hello, world
+
+// Alternative Syntax
+switch ($context):
+    case 1:
+        ehco 'Hello, world';
+        break;
+    case 2:
+        ehco 'Who are you?';
+        break;
+    default:
+        ehco 'Bye';
+endswitch;
+
+/*
+Switch ~ case -> If
+
+if ($context == 1) {
+    ehco 'Hello, world';
+} elseif ($context == 2) {
+    ehco 'Who are you?';
+} else {
+    ehco 'Bye';
+}  // Who are you?
+*/
+
+
+* IF 문 => 조건을 검사할 때 사용!
+* SWITCH ~ CASE 문 => 선택을 해야할 때 사용!
+```
 
 <br><br>
 
@@ -702,6 +814,42 @@ $count += 1;  // $count = $count + 1;,  1
 
 -----
 
+## 12-3. Ternary Operator (삼항연산자)
+
+```
+ehco true ? 'Hello, world' : 'Bye';  // Hello, world
+
+ehco false ? 'Hello, world' : 'Bye';  // Bye
+
+
+* echo 'Hello, world' ?: 'Bye';
+// 앞의 값이 참이면 앞의 것을 return, 거짓이면 뒤의 값을 return한다.
+/*
+즉,
+'Hello, world' ? 'Hello, world' : 'Bye';
+와 일맥상통하는 Syntax 이다.
+*/
+```
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+## 13-1. 반복문(for, foreach)
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+## 13-2. 반복문(while, do ~ while)
 
 <br><br>
 
