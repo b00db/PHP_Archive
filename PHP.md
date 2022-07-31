@@ -12,6 +12,7 @@
 ### [8. PHP 자료형(Data Type)](#8-자료형data-type)
 ### [9. PHP 변수(Variables)](#9-변수-variables)
 ### [10. PHP 상수(Constants)](#10-상수-constants--변하지-않는-값)
+### [11. PHP 연산자(Operators)](#11-연산자-operators)
 
 
 <br><br>
@@ -549,6 +550,131 @@ __NAMESPACE__;  // 현재 네임스페이스의 이름 (대소문자 구분) 이
 
 -----
 
+## 11. 연산자 (Operators)
+
+```
+- String Operators (문자열 연산자)
+
+ehco 'Hello, ' . 'world';  // Hello, world
+
+
+- Null coalescing
+
+$message = null;
+echo $message ?? 'Hello, world';  // Hello, world
+
+$message = 1;
+echo $message ?? 'Hello, world';  // 1
+
+-> message가 null 이면 다음 줄을 반환해주고 null이 아니면 message 값을 반환해준다.
+
+
+- Logical Operators (논리 연산자)
+
+
+// and -> 둘 다 true여야 true
+
+true and true;  // true
+true && true;  // true
+
+// or -> 하나만 true여도 true
+
+true or false;  // true
+true || true;  // true
+
+// xor -> 둘이 달라야 true
+
+true xor false;  // true
+true xor true;  // false
+false xor false;  // false
+
+// not -> 논리연산의 값을 반대로 뒤집음
+
+!true;  // false
+
+
+- Comparison Operators (비교 연산자)
+
+10 == 10;  // true, 값만 비교
+10 == '10';  // true
+
+10 === 10;  // true, 자료형까지 비교(Type Check)
+10 === '10';  // false
+
+10 != 10;  // false, 값만 비교
+10 != '10';  // false
+10 <> 20;  // true
+
+10 !== 10;  // false, 자료형까지 비교(Type Check)
+10 !== '10';  // true
+
+10 > 20;  // false
+10 >= 20;  // false
+10 < 20;  // true
+10 <= 20;  // true
+'ab' < 'ac';  // true
+
+10 <=> 20;  // Spaceship Operators: 크면 1을, 같으면 0을, 작으면 -1을 반환, -1
+10 <=> 10;  // 0
+30 <=> 20;  // 1
+
+
+- Bitwise Operators (비트연산자)
+
+$bin = 0b0101;  // 5
+
+$bin | 0b0100;  // 0b0101, 5
+$bin & 0b0100;  // 0b0100, 4
+$bin ^ 0b0100;  // 0b0001, 1
+$bin << 1;  // 0b1010
+$bin >> 1;  // 0b0010
+~$bin;  // 0b1010, -6
+```
+
+```
+- Arithmetic Operators (산술 연산자)
+
+2 + 2;  // 덧셈 연산자, 4
+4 - 2;  // 뺄셈 연산자, 2
+10 / 3;  // 나눗셈 연산자, 3.333
+5 * 2;  // 곱셈 연산자, 10
+4 % 3;  // 나머지 연산자, 1
+2 ** 4;  // 거듭제곱 연산자, 16
+
+
+- Incrementing / Decrementing Operators (증감연산자)
+
+// 후위증감연산자($count++ / $count--)
+: 변수 $count의 값을 먼저 반환하고, 1을 증가시킨다. / 1을 감소시킨다.
+
+$count = 0;
+echo $count++;  // 0
+echo $count;  // 1
+
+$count = 0;
+echo $count--;  // 0
+echo $count;  // -1
+
+// 전위증감연산자(++$count / --$count)
+: 먼저 1을 증가시키고 / 먼저 1을 감소시키고, 변수 $count를 반환한다.
+
+$count = 0;
+echo ++$count;  // 1
+
+$count = 0;
+echo --$count;  // -1
+
+
+- Assignment Operators (할당 연산자, 대입 연산자)
+: =, +=, -=, /=, *=, %=, **=, &=, |=, ^=, <<==, >>==, .=
+
+$count = 0;
+$count += 1;  // $count = $count + 1;,  1
+
+
+- Operator Precedence (연산자 우선순위)
+: Comparison > Logical 
+```
 
 <br><br>
 
