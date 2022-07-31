@@ -15,7 +15,7 @@
 ### [11. PHP 연산자(Operators)](#11-연산자-operators)
 ### [12-1. PHP 조건문 1 _ IF문](#12-1-조건문if--elseif-else)
 ### [12-2. PHP 조건문 2 _ SWITCH문](#12-2-조건문-switch--case-문)
-### [12-3. PHP 조건문 3 _ 삼항연산자]
+### [12-3. PHP 조건문 3 _ 삼항연산자](#12-3-ternary-operator-삼항연산자)
 ### [13-1. PHP 반복문 1](#13-1-반복문for-foreach)
 ### [13-2. PHP 반복문 2](#13-2-반복문while-do--while)
 
@@ -841,6 +841,78 @@ ehco false ? 'Hello, world' : 'Bye';  // Bye
 
 ## 13-1. 반복문(for, foreach)
 
+```
+- for
+
+/*
+for (초기값; 조건식; 증감값) {
+    반복 수행할 문장 또는 명령;
+}
+*/
+
+for ($i = 1; $ <= 10; $i++) {
+    ehco '{$i} 번째 출력 <br>';
+}
+
+
+- for with array
+
+$messages = [
+    'Hello, world',
+    'Who are you?',
+    'Bye'
+];
+
+for ($i = 0; $i < count($messages); $i++) {
+    echo $message[$i] . PHP_EOL;
+}
+
+
+- foreach (as [$key => ] $value)
+
+$response = [
+    'name' => 'PHP',
+    'catagoryId' => 0,
+    'messages' => 'Hello, world'
+];
+
+foreach ($response as $key => $value) {
+    echo $value . PHP_EOL;
+}
+
+// key 값은 생략 가능
+foreach ($response as $value) {
+    echo $value . PHP_EOL;
+}
+
+/*
+PHP
+0
+Hello, world
+*/
+
+
+$response = [
+    'messages' => [
+        'Hello, world',
+        'Who are you?',
+        'Bye',
+    ],
+];
+
+foreach ($response as $key => $value) {
+    foreach ($value as $msg) {
+        echo $msg . PHP_EOL;
+    }
+}
+
+/*
+Hello, world
+Who are you?
+Bye
+*/
+```
+
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
@@ -851,6 +923,62 @@ ehco false ? 'Hello, world' : 'Bye';  // Bye
 
 ## 13-2. 반복문(while, do ~ while)
 
+```
+- while 문
+
+for ($i = 1; $i < 10; $i++) {
+    ehco $i;  // 123456789
+}
+
+
+$i = 1;
+while ($i < 10) {
+    ehco $i++;
+}  // 123456789
+
+/*
+초기값;
+while (조건식) {
+    반복 수행할 문장 또는 명령;
+    증감값;
+}
+*/
+
+
+=> for문은 끝이 정해져있는 경우에! 그렇지 않은 경우는 while문을 많이 쓴다!
+```
+
+```
+- do ~ while 문
+
+$i = 1;
+do {
+    echo $i++;
+} while ($i < 10);  // 123456789
+
+/*
+초기값;
+do {
+    반복수행할 문장 또는 명령
+    증감값;
+} while (조건식);
+*/
+
+=> while문 같은 경우엔 조건을 먼저 확인하고 실행하지만, do~while문은 먼저 실행하고 조건을 확인한다.
+즉, do~while문은 while문과 비슷하지만 조건의 참, 거짓을 검사하기도 전에 무조건 한 번은 명령을 수행한다는 차이점이 있다.
+```
+
+```
+- break [Level]
+: 반복문을 탈출할 때 사용
+
+-> Level 값에 따라 안쪽부터 Level개의 반복문을 탈출한다.
+
+- continue [Level]
+: 반복문의 조건문으로 이동할 때 사용 
+
+-> Level 값에 따라 안쪽부터 Level번째의 반복문의 조건문으로 이동한다.
+```
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
