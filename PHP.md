@@ -18,6 +18,8 @@
 ### [12-3. PHP 조건문 3 _ 삼항연산자](#12-3-ternary-operator-삼항연산자)
 ### [13-1. PHP 반복문 1 _ FOR문과 FOREACH문](#13-1-반복문for-foreach)
 ### [13-2. PHP 반복문 2 _ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
+### [13-3. PHP BREAK문과 CONTINUE문](#13-3-break와-continue)
+### [14. PHP 함수(Functions)](#14-함수-function)
 
 
 <br><br>
@@ -968,6 +970,16 @@ do {
 즉, do~while문은 while문과 비슷하지만 조건의 참, 거짓을 검사하기도 전에 무조건 한 번은 명령을 수행한다는 차이점이 있다.
 ```
 
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+## 13-3. break와 continue
+
 ```
 - break [Level]
 : 반복문을 탈출할 때 사용
@@ -979,6 +991,130 @@ do {
 
 -> Level 값에 따라 안쪽부터 Level번째의 반복문의 조건문으로 이동한다.
 ```
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+## 14. 함수 (Function)
+: 코드 중복을 제거하여 코드를 효율적으로 설계할 수 있게 도와준다.
+
+```
+- Define function
+
+function hello() {
+    echo 'Hello, world';
+}
+
+hello();  // Hello, world
+
+
+- Variables function
+: 함수의 이름을 변수로 호출 가능
+
+$fn = 'hello';
+$hello();  // Hello, world
+'foo'();  // Hello, world
+
+
+- Define function with Parameters
+
+/*
+function <name>([[datatype] <param_name> [= default value], ...])
+*/
+
+function print($arg) {
+    echo $arg;
+}
+
+// 자료형 지정 가능
+function print(string $arg) {
+    echo $arg;
+}
+
+print('Hello, world');  // Hello, world
+
+
+- Default Parameter
+
+function print2($arg = 'Hello, world) {
+    echo $arg;
+}
+
+print2('Bye');  // Bye
+print2();  // Hello, world
+
+
+- Define function with Rest parameters
+
+function print3(...$args) {
+    var_dump($args);
+}
+
+print3('Hello, world', 'Who are you?', 'Bye');
+/*
+array(3) {
+    [0] =>
+    string(12) "Hello, world"
+    [1] =>
+    string(12) "Who are you?"
+    [2] =>
+    string(3) "Bye"
+}
+*/
+
+
+- Call function with Spread
+
+function print4($arg1, $arg2, $arg3) {
+    var_dump($arg1, $arg2, $arg3);
+}
+
+$args = [ 'Hello, world', 'Who are you?', 'Bye' ];
+
+print4(...$args);
+```
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
