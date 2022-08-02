@@ -1079,6 +1079,83 @@ $args = [ 'Hello, world', 'Who are you?', 'Bye' ];
 print4(...$args);
 ```
 
+```
+- return value
+
+/*
+function <name>(...)[: <return_type>]
+*/
+function hello() {
+    return 'Hello, world';
+}
+
+ehco hello();  // Hello, world
+
+
+- return with context
+
+function hello2(bool $is) {
+    if ($is) {
+        return 'Hello, world';
+    }
+    return 'Bye';
+}
+
+echo hello2(true);  // Hello, world
+echo hello2(false);  // Bye
+
+
+- return variables
+
+function foo($arg) {
+    return $arg;
+}
+
+ehco foo('Hello, world');  // Hello, world
+```
+
+```
+- First class function (일급함수)
+
+: 함수를 변수(값)으로 취급
+
+$foo = function () {
+    return 'Hello, world';
+};  // 익명 함수
+
+ehco $foo();
+
+: 변수로 취급 가능하므로 파라미터로 넘기기도 가능
+
+function foo($callback) {
+    ehco $callback();
+}
+
+foo(
+    function () {
+        return 'Hello, world';
+    }
+);  // Hello, world
+
+
+- Higher-order function (고차함수)
+
+: 함수를 리턴하는 함수, 함수를 다루는 함수
+
+function foo2($callback) {
+    return $callback;
+}
+
+function foo2() {
+    return function() {
+        return 'Hello, world';
+    }
+}
+
+$func = foo2();
+echo $func();  // Hello, world
+```
+
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
