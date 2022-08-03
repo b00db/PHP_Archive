@@ -19,8 +19,9 @@
 ### [13-1. PHP 반복문 1 _ FOR문과 FOREACH문](#13-1-반복문for-foreach)
 ### [13-2. PHP 반복문 2 _ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
 ### [13-3. PHP BREAK문과 CONTINUE문](#13-3-break와-continue)
-### [14. PHP 함수(Functions)](#14-함수-function)
-
+### [14-1. PHP 함수(Functions)](#14-1-함수-function)
+### [14-2. PHP Arrow Functions](#14-2-arrow-functions-php-74-이상)
+### [15. PHP 스코프(Scope)](#15-php-scope-global-scope-local-scope)
 
 <br><br>
 ## [메인페이지로 되돌아가기](README.md)
@@ -1000,7 +1001,7 @@ do {
 
 -----
 
-## 14. 함수 (Function)
+## 14-1. 함수 (Function)
 : 코드 중복을 제거하여 코드를 효율적으로 설계할 수 있게 도와준다.
 
 ```
@@ -1164,6 +1165,128 @@ echo $func();  // Hello, world
 
 -----
 
+# 14-2. Arrow Functions (PHP 7.4 이상)
+
+```
+$message = 'Hello, world';
+
+function foo($callback) {
+    ehco $callback();
+}
+
+foo(function () use ($message) {
+    return $message;
+});  // Hello, world
+
+-> Arrow Functions로 바꾸면,
+
+foo(fn() => $message);  // Hello, world
+
+/*
+$fn = function ($var) use ($message) {
+    return $message;
+};
+
+$fn = fn($var) => $message;  // return 값만 표시
+
+-> 간결해졌고, use 키워드를 쓰지 않아도 된다.
+*/
+
+
+* 아쉬운 점 => muti line 에 있어서는 지원이 되지 않는다. (Single line functions)
+```
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+-----
+
+## 15. PHP Scope: Global Scope, Local Scope
+
+```
+- Access Global Variables
+
+$message = 'Hello, world';  // 글로벌 변수
+
+function foo() {
+    global $message;
+
+    ehco $message;
+}
+
+function foo2() {
+    $message = $GLOBALS['message'];
+
+    ehco $message;
+}
+
+foo();  // Hello, world
+foo2();  // Hello, world
+
+* 하지만, foo()와 foo2()는 '참조'면에서 다르다.
+
+
+- Static variables
+
+function foo3() {
+    static $count = 0;
+    return ++$count;
+}
+
+ehco foo3();  // 1
+ehco foo3();  // 2  // $count 가 static 이 아니었다면, 1
+
+* 보통의 함수는 함수호출이 끝나면 내부에 있던 변수(로컬 변수)에 대한 메모리가 날라가지만, static 을 사용하면 변수에 대한 메모리가 유지된다.
+
+
+- Closure (클로저)
+
+function foo3($arg) {
+    return function() {
+        return $arg;
+    }
+}
+
+$func = foo3('Hello, world');
+ehco $func();  // Error: Undefined variable: arg
+
+* 익명함수에서 바깥쪽 함수의 변수(로컬 변수)에 접근을 하고 싶다면,
+
+function foo3($arg) {
+    ehco $arg;
+    return function() use($arg) {
+        return $arg;
+    }
+}
+
+$func = foo3('Hello, world');
+ehco $func();  // Hello, world
+```
+
+```
+- Constants Scope (상수에 대한 스코프)
+
+function foo() {
+    define('MESSAGE', 'Hello, world');  // 상수 정의 가능
+    const MESSAGE = 'Hello, world';  // Error: 함수 내부에서는 const로 상수 정의 불가능 -> const 는 함수 밖에서만 사용 가능
+}
+
+* PHP Rules : const 는 compile 시점에 Read 하기 때문
+
+
+- Callback 함수, 익명 함수 : Don't need 'use'
+
+$foo = function () {
+    return MESSAGE;
+}
+
+ehco $foo();  // Hello, world;
+
+-> use 를 쓰지 않아도 상수 접근 가능
+```
 
 <br><br>
 
