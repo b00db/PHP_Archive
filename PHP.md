@@ -20,7 +20,7 @@
 ### [13-2. PHP 반복문 2 _ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
 ### [13-3. PHP BREAK문과 CONTINUE문](#13-3-break와-continue)
 ### [14-1. PHP 함수(Functions)](#14-1-함수-function)
-### [14-2. PHP Arrow Functions](#14-2-arrow-functions-php-74-이상)
+### [14-2. PHP Arrow Functions (PHP 7.4 이상)](#14-2-arrow-functions-php-74-이상)
 ### [15. PHP 스코프(Scope)](#15-php-scope-global-scope-local-scope)
 
 <br><br>
@@ -1188,10 +1188,9 @@ $fn = function ($var) use ($message) {
 };
 
 $fn = fn($var) => $message;  // return 값만 표시
-
--> 간결해졌고, use 키워드를 쓰지 않아도 된다.
 */
 
+-> 간결해졌고, use 키워드를 쓰지 않아도 된다.
 
 * 아쉬운 점 => muti line 에 있어서는 지원이 되지 않는다. (Single line functions)
 ```
