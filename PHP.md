@@ -22,6 +22,7 @@
 ### [14-1. PHP 함수(Functions)](#14-1-함수-function)
 ### [14-2. PHP Arrow Functions (PHP 7.4 이상)](#14-2-arrow-functions-php-74-이상)
 ### [15. PHP 스코프(Scope)](#15-php-scope-global-scope-local-scope)
+### [16. PHP include와 require](#16-include-와-require)
 
 <br><br>
 ## [메인페이지로 되돌아가기](README.md)
@@ -1295,6 +1296,25 @@ ehco $foo();  // Hello, world;
 
 -----
 
+## 16. include 와 require
+
+```
+- include(_once)
+
+-> 파일이 없어도 Error를 발생시키진 않는다.
+-> 단순 화면 출력같은 코드의 진행을 막지 않는 것이 좋을 때 사용한다.
+
+
+- require(_once)
+ 
+-> 파일이 없으면 Error를 발생시킨다.
+-> 예외상황 발생시 코드를 중단해야할 경우에 사용한다.
+
+
+* _once : 중복 선언해도 redeclare error가 발생하지 않는다.
+
+* return 사용 가능: return 값으로 반환하는 형태로도 사용 가능하다. 
+```
 
 <br><br>
 
