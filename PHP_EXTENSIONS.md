@@ -8,20 +8,21 @@
 
 ## [Ⅰ. PHP Options/Info Functions](#php-optionsinfo-functions)
 
-### php extension
-### [ⅰ. extension_loaded](#1-extensionloaded)
-### [ⅱ. get_loaded_extensions](#2-getloadedextensons)
+### - php extension
+### [1. extension_loaded]
+### [2. get_loaded_extensions]
 
-### include path
+### - include path
+### [3. set_include_path]
 
 
-### include files
+### - include files
 
-### php information
+### - php information
 
-### php.ini
+### - php.ini
 
-### environment variables
+### - environment variables
 
 <br><br>
 ## [메인페이지로 돌아가기](README.md)
