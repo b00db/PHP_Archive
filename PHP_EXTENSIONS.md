@@ -9,11 +9,11 @@
 ## [Ⅰ. PHP Options/Info Functions](#php-optionsinfo-functions)
 
 ### - php extension
-### [1. extension_loaded]
-### [2. get_loaded_extensions]
+### 1. extension_loaded
+### 2. get_loaded_extensions
 
 ### - include path
-### [3. set_include_path]
+### 3. set_include_path
 
 
 ### - include files
