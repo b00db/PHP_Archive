@@ -7,8 +7,21 @@
 ## Contents
 
 ## [Ⅰ. PHP Options/Info Functions](#php-optionsinfo-functions)
-### [ⅰ. extension_loaded](#extensionloaded)
 
+### php extension
+### [ⅰ. extension_loaded](#1-extensionloaded)
+### [ⅱ. get_loaded_extensions](#2-getloadedextensons)
+
+### include path
+
+
+### include files
+
+### php information
+
+### php.ini
+
+### environment variables
 
 <br><br>
 ## [메인페이지로 돌아가기](README.md)
@@ -38,6 +51,99 @@ extension_loaded(string $extension): bool
 
 ```
 get_loaded_extensions(bool $zend_extensions = false): array
+```
+
+<br>
+
+### 3. set_include_path
+
+: Sets the include_path configuration option
+
+```
+set_include_path(string $include_path): string|false
+```
+
+<br>
+
+```
+** Examples
+
+include 'mylib/HelloWorld.php';
+
+<=>
+
+set_include_path(__DIR__ . 'mylib');
+include 'HelloWorld.php';
+```
+
+<br>
+
+### 4. get_include_path
+
+: Gets the current include_path configuration option
+
+```
+get_include_path(): string|false
+```
+
+<br>
+
+### 5. restore_include_path
+
+: restore_include_path — Restores the value of the include_path configuration option
+
+```
+restore_include_path(): void
+```
+
+<br>
+
+### 6. get_included_files
+
+: Returns an array with the names of included or required files
+
+```
+get_included_files(): array
+```
+
+<br>
+
+### 7. phpinfo
+
+: Outputs information about PHP's configuration
+
+```
+phpinfo(int $flags = INFO_ALL): bool
+```
+
+<br>
+
+### 8. ini_set
+
+: Sets the value of a configuration option
+
+```
+ini_set(string $option, string|int|float|bool|null $value): string|false
+```
+
+<br>
+
+### 9. ini_get
+
+: Gets the value of a configuration option
+
+```
+ini_get(string $option): string|false
+```
+
+<br>
+
+### 10. ini_restore
+
+: Restores the value of a configuration option
+
+```
+ini_restore(string $option): void
 ```
 
 <br>
