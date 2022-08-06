@@ -1,5 +1,9 @@
 # PHP (Professional HTML Preprocessor)
 
+PHP Basic Syntax 저장소입니다.
+
+<br>
+
 ## Contents
 
 ### [1. PHP vs. JSP vs. ASP](#1-php-jsp-asp)
@@ -25,10 +29,12 @@
 ### [16. PHP include와 require](#16-include-와-require)
 
 <br><br>
-## [메인페이지로 되돌아가기](README.md)
+## [메인페이지로 돌아가기](README.md)
 <br>
 
 -----
+
+<br>
 
 ## 1. PHP? JSP? ASP?   
 

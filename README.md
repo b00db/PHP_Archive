@@ -6,8 +6,8 @@ PHP 관련 저장소 입니다.
 
 ## Contents
 
-### [1. PHP 기본 개념](PHP.md)
-### [2. PHP 내장 함수](PHP_CORE_EXTENSIONS.md)
+### [1. PHP 기본 문법](PHP.md)
+### [2. PHP 내장 함수](PHP_EXTENSIONS.md)
 
 <br><br>
 
