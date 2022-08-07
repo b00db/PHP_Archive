@@ -4,7 +4,7 @@
 
 <br>
 
-## Contents
+## Contents (수정 예정)
 
 <br>
 
@@ -65,9 +65,12 @@
 
 <br>
 
-### - log level
-
+### - log
 ### 15. error_reporting
+### 16. error_log
+
+### - backtrace
+
 
 
 <br>
@@ -315,7 +318,7 @@ assert(false);
 
 <br> 
 
-## log level
+## - log
 
 <br>
 
@@ -329,3 +332,113 @@ error_reporting(?int $error_level = null): int
 
 <br>
 
+### 16. error_log
+
+: Send an error message to the defined error handling routines
+
+```
+error_log(
+    string $message,
+    int $message_type = 0,
+    ?string $destination = null,
+    ?string $additional_headers = null
+): bool
+```
+
+<br>
+
+## - backtrace
+
+<br>
+
+### 17. debug_pring_backtrace
+
+: Prints a backtrace
+
+```
+debug_print_backtrace(int $options = 0, int $limit = 0): void
+```
+
+<br>
+
+### 18. debug_backtrace
+
+: Generates a backtrace
+
+```
+debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0): array
+```
+
+<br>
+
+## - ignore errors
+
+<br>
+
+### 19. @
+
+: Ignores PHP errors
+
+```
+function foo() {
+    메롱;
+}
+
+@foo();
+```
+
+-> 프로그램이 느려지기 때문에 되도록 사용하지 않는 것이 좋다.
+
+<br>
+
+## - error handling
+
+<br>
+
+### 20. set_error_handler
+
+: Sets a user-defined error handler function
+
+```
+set_error_handler(?callable $callback, int $error_levels = E_ALL): ?callable
+```
+
+<br>
+
+### 21. restore_error_handler
+
+: Restores the previous error handler function
+
+```
+restore_error_handler(): bool
+```
+
+<br>
+
+## - trigger custom error
+
+<br>
+
+### 22. trigger_error
+
+: Generates a user-level error/warning/notice message
+
+```
+trigger_error(string $message, int $error_level = E_USER_NOTICE): bool
+```
+
+<br>
+
+```
+** Examples
+
+set_error_handler(function ($errno, $errstr) {
+    switch ($errno) {
+        case E_USER_ERROR:
+            var_dump($errstr);
+            break;
+    }
+});  // -> This is a E_USER_ERROR message.
+
+trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
+```
