@@ -24,6 +24,8 @@
 
 ### - environment variables
 
+### - assert options / assert
+
 <br><br>
 ## [메인페이지로 돌아가기](README.md)
 <br>
@@ -33,6 +35,10 @@
 <br>
 
 ## PHP Options/Info Functions
+
+<br>
+
+## - php extension 
 
 <br>
 
@@ -53,6 +59,10 @@ extension_loaded(string $extension): bool
 ```
 get_loaded_extensions(bool $zend_extensions = false): array
 ```
+
+<br>
+
+## - include path
 
 <br>
 
@@ -99,6 +109,10 @@ restore_include_path(): void
 
 <br>
 
+## - include files
+
+<br>
+
 ### 6. get_included_files
 
 : Returns an array with the names of included or required files
@@ -109,6 +123,10 @@ get_included_files(): array
 
 <br>
 
+## - php information
+
+<br>
+
 ### 7. phpinfo
 
 : Outputs information about PHP's configuration
@@ -116,6 +134,10 @@ get_included_files(): array
 ```
 phpinfo(int $flags = INFO_ALL): bool
 ```
+
+<br>
+
+## - php.ini
 
 <br>
 
@@ -145,6 +167,93 @@ ini_get(string $option): string|false
 
 ```
 ini_restore(string $option): void
+```
+
+<br>
+
+## - environment variables
+
+<br>
+
+### 11. putenv
+
+: Sets the value of an environment variable
+
+```
+putenv(string $assignment): bool
+```
+
+<br>
+
+### 12. getenv
+
+: Gets the value of an environment variable
+
+```
+getenv(string $varname, bool $local_only = false): string|false
+```
+
+<br>
+
+```
+** putenv, getenv <-> $_ENV
+
+// Set
+putenv('APP_ENV=' . 'production');
+// Get
+getenv('APP_ENV');
+
+<-> 비슷해보여도 엄연히 다르다. (서로 다르게 인식한다. 즉, 서로 연관이 없다.)
+
+// Set
+$_ENV['APP_ENV'] = 'development';
+// Get
+$_ENV['APP_ENV'];
+```
+
+<br>
+
+## - assert options / assert
+
+<br>
+
+### 13. assert_options
+
+: Set/get the various assert flags
+
+```
+assert_options(int $what, mixed $value = ?): mixed
+```
+
+<br>
+
+### 14. assert
+
+: Checks if assertion is false
+
+```
+assert(mixed $assertion, Throwable $exception = ?): bool
+```
+
+<br>
+
+```
+** Example
+
+// Active
+assert_options(ASSERT_ACTIVE, true);
+// Stop testing on failure
+assert_options(ASSERT_BAIL, false);
+// PHP Trace
+assert_options(ASSERT_WARNING, true);
+// Callback
+assert_options(ASSERT_CALLBACK, 'assertfailure');
+
+function assertfailure(...$args) {
+    var_dump($args);
+}
+
+assert(false);
 ```
 
 <br>
