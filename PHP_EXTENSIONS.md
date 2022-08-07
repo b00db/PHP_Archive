@@ -6,25 +6,73 @@
 
 ## Contents
 
+<br>
+
 ## [Ⅰ. PHP Options/Info Functions](#php-optionsinfo-functions)
 
-### - php extension
+<br>
+
+###  - php extension
+
 ### 1. extension_loaded
 ### 2. get_loaded_extensions
 
-### - include path
-### 3. set_include_path
+<br>
 
+### - include path
+
+### 3. set_include_path
+### 4. get_include_path
+### 5. restore_include_path
+
+<br>
 
 ### - include files
 
+### 6. get_included_files
+
+<br>
+
 ### - php information
+
+### 7. phpinfo
+
+<br>
 
 ### - php.ini
 
+### 8. ini_set
+### 9. ini_get
+### 10. ini_restore
+
+<br>
+
 ### - environment variables
 
+### 11. putenv
+### 12. getenv
+
+<br>
+
 ### - assert options / assert
+
+### 13. assert_options
+### 14. assert
+
+<br>
+
+## [Ⅱ. Error Handling and Logging](#error-handling-and-logging)
+
+<br>
+
+### - log level
+
+### 15. error_reporting
+
+
+<br>
+
+
 
 <br><br>
 ## [메인페이지로 돌아가기](README.md)
@@ -256,4 +304,28 @@ function assertfailure(...$args) {
 assert(false);
 ```
 
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+
+## Error Handling and Logging
+
+<br> 
+
+## log level
+
 <br>
+
+### 15. error_reporting
+
+: Sets which PHP errors are reported
+
+```
+error_reporting(?int $error_level = null): int
+```
+
+<br>
+
