@@ -4,7 +4,7 @@
 
 <br>
 
-## Contents (수정 예정)
+## Contents (추가 중...🚧)
 
 <br>
 
@@ -12,9 +12,10 @@
 
 <br>
 
-###  - php extension
+### - php extension
 
 ### 1. extension_loaded
+
 ### 2. get_loaded_extensions
 
 <br>
@@ -22,7 +23,9 @@
 ### - include path
 
 ### 3. set_include_path
+
 ### 4. get_include_path
+
 ### 5. restore_include_path
 
 <br>
@@ -42,7 +45,9 @@
 ### - php.ini
 
 ### 8. ini_set
+
 ### 9. ini_get
+
 ### 10. ini_restore
 
 <br>
@@ -50,6 +55,7 @@
 ### - environment variables
 
 ### 11. putenv
+
 ### 12. getenv
 
 <br>
@@ -57,6 +63,7 @@
 ### - assert options / assert
 
 ### 13. assert_options
+
 ### 14. assert
 
 <br>
@@ -66,30 +73,48 @@
 <br>
 
 ### - log
+
 ### 15. error_reporting
+
 ### 16. error_log
 
 ### - backtrace
 
+### 17. debug_print_backtrace
 
+### 18. debug_backtrace
+
+### - ignore errors
+
+### 19. @
+
+### - error handling
+
+### 20. set_error_handler
+
+### 21. restore_error_handler
+
+### - trigger custom error
+
+### 22. trigger_error
 
 <br>
-
-
 
 <br><br>
+
 ## [메인페이지로 돌아가기](README.md)
-<br>
-
------
 
 <br>
 
-## PHP Options/Info Functions
+---
 
 <br>
 
-## - php extension 
+## ✒️ PHP Options/Info Functions
+
+<br>
+
+## - php extension
 
 <br>
 
@@ -313,10 +338,9 @@ assert(false);
 
 <br><br><br>
 
+## ✒️ Error Handling and Logging
 
-## Error Handling and Logging
-
-<br> 
+<br>
 
 ## - log
 
@@ -328,6 +352,12 @@ assert(false);
 
 ```
 error_reporting(?int $error_level = null): int
+```
+
+```
+** Example
+
+error_reporting(E_ALL & ~E_NOTICE);
 ```
 
 <br>
@@ -351,7 +381,7 @@ error_log(
 
 <br>
 
-### 17. debug_pring_backtrace
+### 17. debug_print_backtrace
 
 : Prints a backtrace
 
@@ -375,11 +405,13 @@ debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0): 
 
 <br>
 
-### 19. @
+### 19. @ Operator
 
 : Ignores PHP errors
 
 ```
+** Example
+
 function foo() {
     메롱;
 }
@@ -442,3 +474,11 @@ set_error_handler(function ($errno, $errstr) {
 
 trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 ```
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️
