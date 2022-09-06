@@ -7,39 +7,61 @@ PHP Basic Syntax 저장소입니다.
 ## Contents
 
 ### [1. PHP vs. JSP vs. ASP](#1-php-jsp-asp)
+
 ### [2. PHP 웹 구동방식](#2-php-웹-구동-원리)
-### [3. PHP 시작과 끝](#3-php의-시작과-끝)   
+
+### [3. PHP 시작과 끝](#3-php의-시작과-끝)
+
 ### [4. PHP 주석처리](#4-php에서의-주석처리)
+
 ### [5. PHP 출력문](#5-출력문)
+
 ### [6. PHP 스크립트 중단](#6-스크립트-중단)
+
 ### [7. PHP와 HTML 관계](#7-php와-html의-관계)
+
 ### [8. PHP 자료형(Data Type)](#8-자료형data-type)
+
 ### [9. PHP 변수(Variables)](#9-변수-variables)
+
 ### [10. PHP 상수(Constants)](#10-상수-constants--변하지-않는-값)
+
 ### [11. PHP 연산자(Operators)](#11-연산자-operators)
-### [12-1. PHP 조건문 1 _ IF문](#12-1-조건문if--elseif-else)
-### [12-2. PHP 조건문 2 _ SWITCH문](#12-2-조건문-switch--case-문)
-### [12-3. PHP 조건문 3 _ 삼항연산자](#12-3-ternary-operator-삼항연산자)
-### [13-1. PHP 반복문 1 _ FOR문과 FOREACH문](#13-1-반복문for-foreach)
-### [13-2. PHP 반복문 2 _ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
+
+### [12-1. PHP 조건문 1 \_ IF문](#12-1-조건문if--elseif-else)
+
+### [12-2. PHP 조건문 2 \_ SWITCH문](#12-2-조건문-switch--case-문)
+
+### [12-3. PHP 조건문 3 \_ 삼항연산자](#12-3-ternary-operator-삼항연산자)
+
+### [13-1. PHP 반복문 1 \_ FOR문과 FOREACH문](#13-1-반복문for-foreach)
+
+### [13-2. PHP 반복문 2 \_ WHILE문과 DO~WHILE문](#13-2-반복문while-do--while)
+
 ### [13-3. PHP BREAK문과 CONTINUE문](#13-3-break와-continue)
+
 ### [14-1. PHP 함수(Functions)](#14-1-함수-function)
+
 ### [14-2. PHP Arrow Functions (PHP 7.4 이상)](#14-2-arrow-functions-php-74-이상)
+
 ### [15. PHP 스코프(Scope)](#15-php-scope-global-scope-local-scope)
+
 ### [16. PHP include와 require](#16-include-와-require)
 
 <br><br>
+
 ## [메인페이지로 돌아가기](README.md)
-<br>
-
------
 
 <br>
 
-## 1. PHP? JSP? ASP?   
+---
+
+<br>
+
+## ✒️ 1. PHP? JSP? ASP?
 
 ```
-- PHP (Personal Hypertext Preprocessor)   
+- PHP (Personal Hypertext Preprocessor)
 
 : PHP는 1994년 Rasmus Lerdort가 개인 홈페이지를 만들기 위해 처음 고안하였으며 현재 세계에서 가장 많이 사용하고 있는 아파치 웹 서버에 모듈형태로 장착되어 활용되고 있다.
 PHP는 서버의 운영체제가 윈도우뿐만 아니라 유닉스와 리눅스 운영체제에서도 사용이 가능한 서버측 스크립트 언어이다.
@@ -64,7 +86,7 @@ JSP는 일반적인 웹 페이지의 형태를 나타내는 HTML 태그로 구�
 
 JSP는 서블릿 기술을 활용한 수행 흐름으로 서버에서의 수행능력이 뛰어나며 플랫폼과 웹 서버에 독립적으로 구현 가능하다는 장점이 있다.
 또한, 컴포넌트를 활용하여 프레젠테이션 부분과 프로그램 기능 구현 부분으로 분리하여 개발 할 수 있으며 자바의 특징을 그대로 사용할 수 있다는 장점이 있는 반면, 코딩이 어렵고 ASP에 비해 코드를 입력해야 하는 양이 1.5배가량 더 많다는 단점이 존재한다.
-그렇지만, JVM(Java Virtual Machine)이라는 프로그램이 운영체제 위에 설치되어 가동되면 모든 운영체제(유닉스, 리눅스, 윈도우)에서 사용할 수 있기 때문에 코딩이 어려워도 많이 사용되고 있는 추세이다. 
+그렇지만, JVM(Java Virtual Machine)이라는 프로그램이 운영체제 위에 설치되어 가동되면 모든 운영체제(유닉스, 리눅스, 윈도우)에서 사용할 수 있기 때문에 코딩이 어려워도 많이 사용되고 있는 추세이다.
 ```
 
 ```
@@ -90,13 +112,13 @@ ASP의 장점은 적당히 빠른 생산성과 편리성을 들 수 있으며 MS
 
 <br>
 
------
+---
 
-## 2. PHP 웹 구동 원리   
+## ✒️ 2. PHP 웹 구동 원리
 
-### 웹 DB 프로그래밍 언어와 HTML의 차이점 
+### 웹 DB 프로그래밍 언어와 HTML의 차이점
 
-웹서버가 구축된 환경에서 결과를 보여주는 PHP와 웹서버의 존재 유무를 무시하고 결과 화면을 웹브라우저를 통해 보여주는 HTML는 커다란 차이가 있다.   
+웹서버가 구축된 환경에서 결과를 보여주는 PHP와 웹서버의 존재 유무를 무시하고 결과 화면을 웹브라우저를 통해 보여주는 HTML는 커다란 차이가 있다.
 
 HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만, PHP는 웹서버가 반드시 구축되어 있어야만 결과 화면을 볼 수가 있다. 그 이유는 서버 측에서 명령의 해석을 하고 클라이언트 측(웹 브라우저)에 결과를 보내지는 과정을 거치기 때문이다.
 
@@ -105,7 +127,6 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 ### PHP에서의 웹 서버와 클라이언트 동작 원리
 
 ![WEB](./images/WEB.PNG)
-
 
 ① 웹 브라우저에서 http://localhost 또는 http://127.0.0.1을 입력한다.
 
@@ -123,16 +144,15 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 ⑫ 클라이언트는 웹 브라우저를 통해 test.php 파일의 결과 화면을 본다.
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 3. PHP의 시작과 끝    
+## ✒️ 3. PHP의 시작과 끝
 
 ### - php의 시작
 
@@ -142,18 +162,18 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -> php의 시작을 나타낸다.
 
-### - php의 끝 
+### - php의 끝
 
 ```
 ?>
 ```
 
--> php의 끝을 나타낸다.   
--> php만 단독으로 쓰일 땐 생략 가능하다. 
+-> php의 끝을 나타낸다.  
+-> php만 단독으로 쓰일 땐 생략 가능하다.
 
 <br>
 
-*참고
+\*참고
 
 ```
 1. <? ... ?>  // 보편적인 방법
@@ -165,17 +185,15 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -> XML이나 XHTML 안에 PHP 코드를 내장시켜 사용하고자 할 때는 확실한 구분을 위해 <?php ...?>형을 사용하는 것이 좋다.
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-
-## 4. PHP에서의 주석처리   
+## ✒️ 4. PHP에서의 주석처리
 
 ### - 한 줄 주석
 
@@ -202,9 +220,9 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 <br>
 
------
+---
 
-## 5. 출력문   
+## ✒️ 5. 출력문
 
 ```
 - echo
@@ -213,16 +231,15 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -> C언어의 printf() 함수와 같은 의미로, 대소문자를 구별하지 않는다.
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 6. 스크립트 중단   
+## ✒️ 6. 스크립트 중단
 
 ```
 - exit
@@ -231,16 +248,15 @@ HTML은 클라이언트 측에서 실행되고 결과 화면을 나타내지만,
 
 -> 기점으로 스크립트가 중단된다.
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 7. PHP와 HTML의 관계   
+## ✒️ 7. PHP와 HTML의 관계
 
 HTML 안에 PHP 태그를 첨부할 수 있다.
 PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코드를 해석하고, 닫기 태그 이후에 작성된 태그는 그냥 넘겨주기 때문에 PHP 태그 영역과 외부는 완전히 독립적으로 존재하게 된다.
@@ -267,9 +283,9 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 
 <br>
 
------
+---
 
-## 8. 자료형(Data Type)   
+## ✒️ 8. 자료형(Data Type)
 
 - String Type : 문자열형 변수
 
@@ -278,11 +294,9 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 "Hello, world"
 ```
 
-
 - Null Type : 값이 할당이 안된 상태(임시값)
 
 -> Type Casting 불가능
-
 
 - Integer Type (Int) : 정수형 변수
 
@@ -293,7 +307,6 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 0b0101;  // Binary
 ```
 
-
 - Floating point number Type (float, double) : 실수형 변수
 
 ```
@@ -302,14 +315,12 @@ PHP는 열기 태그 "<?php"에서부터 닫기 태그 "?>"까지 발견된 코�
 7E-3;
 ```
 
-
 - Boolean Type
 
 ```
 true;
 false;
 ```
-
 
 - Array (배열) : 동일한 이름의 변수를 여러 개 저장
 
@@ -344,7 +355,7 @@ list(, $fruit) = $fruits;  // banana
 ['fruit' => $fruit] = $fruits
 ```
 
-** CRUD
+\*\* CRUD
 
 - Insert
 
@@ -362,13 +373,11 @@ array(4) {
 */
 ```
 
-
 - Select
 
 ```
 echo $fruit[3];  // orange
 ```
-
 
 - Update
 
@@ -378,7 +387,6 @@ $fruit[3] = 'melon';
 echo $fruit[3];  // melon
 ```
 
-
 - Delete
 
 ```
@@ -387,8 +395,7 @@ unset($fruits[3]);
 echo $fruits[3];  // Error: Undefine offset
 ```
 
-
-** Spread Operator in Array Expression (PHP 7.4 이상)
+\*\* Spread Operator in Array Expression (PHP 7.4 이상)
 
 ```
 $fruits = [
@@ -433,16 +440,15 @@ $fruits = [
 (bool) null;  // false
 ```
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 9. 변수 (Variables)   
+## ✒️ 9. 변수 (Variables)
 
 ```
 - Define Variables
@@ -451,7 +457,7 @@ $message = 'Hello, world';  // String
 $count = 0;  // Int
 $pi = 3.14;  // Double
 $isVisited = false;  // Boolean
-$temp = null;  // Null 
+$temp = null;  // Null
 
 
 - Using Variables
@@ -527,16 +533,15 @@ ${$varName} = 'Hello, world';
 -> 필요할 때만 사용하기!
 ```
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 10. 상수 (Constants) : 변하지 않는 값   
+## ✒️ 10. 상수 (Constants) : 변하지 않는 값
 
 ```
 - Define Constants
@@ -556,16 +561,15 @@ __METHOD__;  // 정의된 그대로의 메소드명 반환 (대소문자 구분)
 __NAMESPACE__;  // 현재 네임스페이스의 이름 (대소문자 구분) 이 상수는 컴파일을 할 경우에 정의됨
 ```
 
-
 <br><br>
 
 ### [Contents 목록으로 되돌아가기](#contents)
 
 <br>
 
------
+---
 
-## 11. 연산자 (Operators)
+## ✒️ 11. 연산자 (Operators)
 
 ```
 - String Operators (문자열 연산자)
@@ -688,7 +692,7 @@ $count += 1;  // $count = $count + 1;,  1
 
 
 - Operator Precedence (연산자 우선순위)
-: Comparison > Logical 
+: Comparison > Logical
 ```
 
 <br><br>
@@ -697,9 +701,9 @@ $count += 1;  // $count = $count + 1;,  1
 
 <br>
 
------
+---
 
-## 12-1. 조건문(if ~ elseif, else)
+## ✒️ 12-1. 조건문(if ~ elseif, else)
 
 ```
 * false 참고 : [], '', false, 0, null
@@ -767,9 +771,9 @@ if ($message = 'Hello, world') {
 
 <br>
 
------
+---
 
-## 12-2. 조건문 (Switch ~ case 문)
+## ✒️ 12-2. 조건문 (Switch ~ case 문)
 
 ```
 - Switch ~ case 문
@@ -822,9 +826,9 @@ if ($context == 1) {
 
 <br>
 
------
+---
 
-## 12-3. Ternary Operator (삼항연산자)
+## ✒️ 12-3. Ternary Operator (삼항연산자)
 
 ```
 ehco true ? 'Hello, world' : 'Bye';  // Hello, world
@@ -847,9 +851,9 @@ ehco false ? 'Hello, world' : 'Bye';  // Bye
 
 <br>
 
------
+---
 
-## 13-1. 반복문(for, foreach)
+## ✒️ 13-1. 반복문(for, foreach)
 
 ```
 - for
@@ -929,9 +933,9 @@ Bye
 
 <br>
 
------
+---
 
-## 13-2. 반복문(while, do ~ while)
+## ✒️ 13-2. 반복문(while, do ~ while)
 
 ```
 - while 문
@@ -984,9 +988,9 @@ do {
 
 <br>
 
------
+---
 
-## 13-3. break와 continue
+## ✒️ 13-3. break와 continue
 
 ```
 - break [Level]
@@ -995,7 +999,7 @@ do {
 -> Level 값에 따라 안쪽부터 Level개의 반복문을 탈출한다.
 
 - continue [Level]
-: 반복문의 조건문으로 이동할 때 사용 
+: 반복문의 조건문으로 이동할 때 사용
 
 -> Level 값에 따라 안쪽부터 Level번째의 반복문의 조건문으로 이동한다.
 ```
@@ -1006,9 +1010,10 @@ do {
 
 <br>
 
------
+---
 
-## 14-1. 함수 (Function)
+## ✒️ 14-1. 함수 (Function)
+
 : 코드 중복을 제거하여 코드를 효율적으로 설계할 수 있게 도와준다.
 
 ```
@@ -1170,9 +1175,9 @@ echo $func();  // Hello, world
 
 <br>
 
------
+---
 
-# 14-2. Arrow Functions (PHP 7.4 이상)
+# ✒️ 14-2. Arrow Functions (PHP 7.4 이상)
 
 ```
 $message = 'Hello, world';
@@ -1208,9 +1213,9 @@ $fn = fn($var) => $message;  // return 값만 표시
 
 <br>
 
------
+---
 
-## 15. PHP Scope: Global Scope, Local Scope
+## ✒️ 15. PHP Scope: Global Scope, Local Scope
 
 ```
 - Access Global Variables
@@ -1300,9 +1305,9 @@ ehco $foo();  // Hello, world;
 
 <br>
 
------
+---
 
-## 16. include 와 require
+## ✒️ 16. include 와 require
 
 ```
 - include(_once)
@@ -1312,14 +1317,14 @@ ehco $foo();  // Hello, world;
 
 
 - require(_once)
- 
+
 -> 파일이 없으면 Error를 발생시킨다.
 -> 예외상황 발생시 코드를 중단해야할 경우에 사용한다.
 
 
 * _once : 중복 선언해도 redeclare error가 발생하지 않는다.
 
-* return 사용 가능: return 값으로 반환하는 형태로도 사용 가능하다. 
+* return 사용 가능: return 값으로 반환하는 형태로도 사용 가능하다.
 ```
 
 <br><br>
@@ -1328,17 +1333,7 @@ ehco $foo();  // Hello, world;
 
 <br>
 
------
-
-
-<br><br>
-
-### [Contents 목록으로 되돌아가기](#contents)
-
-<br>
-
------
-
+---
 
 <br><br>
 
@@ -1346,17 +1341,7 @@ ehco $foo();  // Hello, world;
 
 <br>
 
------
-
-
-<br><br>
-
-### [Contents 목록으로 되돌아가기](#contents)
-
-<br>
-
------
-
+---
 
 <br><br>
 
@@ -1364,8 +1349,7 @@ ehco $foo();  // Hello, world;
 
 <br>
 
------
-
+---
 
 <br><br>
 
@@ -1373,4 +1357,20 @@ ehco $foo();  // Hello, world;
 
 <br>
 
------
+---
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+---
+
+<br><br>
+
+### [Contents 목록으로 되돌아가기](#contents)
+
+<br>
+
+---
