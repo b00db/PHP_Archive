@@ -490,6 +490,8 @@ trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 ## ✒️ Strings
 
 
+<br>
+
 <br><br>
 
 ## [이 페이지의 맨 위로 이동](#contents)
