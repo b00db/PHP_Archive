@@ -104,9 +104,15 @@
 
 <br>
 
-### - Add slashes at Quotes
+### - Add/Remove slashes at Quotes
 
-### 23.
+### 23. addslashes
+
+### 24. stripslashes
+
+<br>
+
+### - Binary to Hex / Hex to Binary
 
 <br>
 
@@ -495,7 +501,7 @@ trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 
 <br>
 
-## - Add slashes at Quotes
+## - Add/Remove slashes at Quotes
 
 <br>
 
@@ -505,6 +511,16 @@ trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 
 ```
 addslashes(string $string): string
+```
+
+<br>
+
+### 24. stripslashes
+
+: Un-quotes a quoted string
+
+```
+stripslashes(string $string): string
 ```
 
 ```
@@ -519,7 +535,38 @@ stripslashes($slashe);  // "'"
 
 <br>
 
-### 24.
+## - Binary to Hex / Hex to Binary
+
+<br>
+
+### 25. bin2hex
+
+: Convert binary data into hexadecimal representation
+
+```
+bin2hex(string $string): string
+```
+
+<br>
+
+### 26. hex2bin
+: Decodes a hexadecimally encoded binary string
+
+```
+hex2bin(string $string): string|false
+```
+
+```
+*** Example
+
+$bytes = random_bytes(32);
+
+// bin -> hex
+$hex = bin2hex($bytes);
+
+// hex -> bin
+hex2bin($hex);
+```
 
 <br>
 
