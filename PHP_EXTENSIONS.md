@@ -487,7 +487,7 @@ trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 
 <br><br><br>
 
-## ✒️
+## ✒️ Strings
 
 
 <br><br>
