@@ -4,11 +4,11 @@
 
 <br>
 
-## Contents (추가 중...🚧)
+## Contents
 
 <br>
 
-## [Ⅰ. PHP Options/Info Functions](#php-optionsinfo-functions)
+## [Ⅰ. PHP Options/Info Functions](#️-php-optionsinfo-functions))
 
 <br>
 
@@ -68,7 +68,7 @@
 
 <br>
 
-## [Ⅱ. Error Handling and Logging](#error-handling-and-logging)
+## [Ⅱ. Error Handling and Logging](#️-error-handling-and-logging)
 
 <br>
 
@@ -100,9 +100,13 @@
 
 <br>
 
-## [Ⅲ.](#)
+## [Ⅲ. Strings](#️-strings)
 
 <br>
+
+### - Add slashes at Quotes
+
+### 23.
 
 <br>
 
@@ -489,6 +493,33 @@ trigger_error('This is a E_USER_ERROR message.', E_USER_ERROR);
 
 ## ✒️ Strings
 
+<br>
+
+## - Add slashes at Quotes
+
+<br>
+
+### 23. addslashes
+
+: Quote string with slashes
+
+```
+addslashes(string $string): string
+```
+
+```
+** Example
+
+// ADD
+$slashe = addslashes("'");  // "\'"
+
+// REMOVE
+stripslashes($slashe);  // "'"
+```
+
+<br>
+
+### 24.
 
 <br>
 
