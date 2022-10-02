@@ -114,6 +114,14 @@
 
 ### - Binary to Hex / Hex to Binary
 
+### 25. bin2hex
+
+### 26. hex2bin
+
+<br>
+
+### - One way hash (Encryption)
+
 <br>
 
 <br><br>
@@ -550,6 +558,7 @@ bin2hex(string $string): string
 <br>
 
 ### 26. hex2bin
+
 : Decodes a hexadecimally encoded binary string
 
 ```
@@ -566,6 +575,147 @@ $hex = bin2hex($bytes);
 
 // hex -> bin
 hex2bin($hex);
+```
+
+<br>
+
+## - One way hash (Encryption)
+
+: sha1, md5 Not recommended
+
+<br>
+
+### 27. crypt
+
+: One-way string hashing
+
+```
+crypt(string $string, string $salt): string
+```
+
+<br>
+
+## - Split, Join
+
+<br>
+
+### 28. explode
+
+: Split a string by a string
+
+```
+explode(string $separator, string $string, int $limit = PHP_INT_MAX): array
+```
+
+<br>
+
+### 29. implode
+
+: Join array elements with a string
+
+```
+implode(string $separator, array $array): string
+```
+
+```
+implode(array $array): string
+```
+
+```
+*** Example
+
+$url = 'http://example.com';
+
+// Split
+$exp = explode('//', $url);
+// Join
+implode('//', $exp);
+```
+
+<br>
+
+## - HTML entities
+
+<br>
+
+### 30-1. htmlentities
+
+: Convert all applicable characters to HTML entities
+
+```
+htmlentities(
+    string $string,
+    int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,
+    ?string $encoding = null,
+    bool $double_encode = true
+): string
+```
+
+<br>
+
+### 30-2. htmlspecialchars
+
+: Convert special characters to HTML entities
+
+```
+htmlspecialchars(
+    string $string,
+    int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,
+    ?string $encoding = null,
+    bool $double_encode = true
+): string
+```
+
+<br>
+
+### 31-1. html_entity_decode
+
+: Convert HTML entities to their corresponding characters
+
+```
+html_entity_decode(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, ?string $encoding = null): string
+```
+
+<br>
+
+### 31-2. htmlspecialchars_decode
+
+: Convert special HTML entities back to characters
+
+```
+htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401): string
+```
+
+```
+*** Example
+
+$html = <<< 'HTML'
+<html>
+    <body></body>
+</html>
+HTML;
+
+// Encode
+$encoded = htmlentities($html);  // 추천
+// $encoded = htmlspecialchars($html);  // 좀 더 범위가 작음
+
+// Decode
+echo html_entity_decode($encoded);
+//echo htmlspecialchars_decode($encoded);
+```
+
+<br>
+
+## - Strip HTML Tags
+
+<br>
+
+### 32. strip_tags
+
+: Strip HTML and PHP tags from a string
+
+```
+strip_tags(string $string, array|string|null $allowed_tags = null): string
 ```
 
 <br>
