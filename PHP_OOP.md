@@ -12,6 +12,8 @@ PHP OOP Syntax 저장소입니다.
 
 ## [Ⅱ. 정적 메서드와 늦은 정적 바인딩(Static)](#static)
 
+## [Ⅲ. 상속](#생성자와-소멸자)
+
 <br>
 
 <br><br>
@@ -66,8 +68,9 @@ class A {
 
 $a = new A();
 var_dump($a->foo());  // "Hello, world"
+```
 
-
+```
 /*
  * Inherit
  */
@@ -232,3 +235,162 @@ $b->test();  // "B"
 ```
 
 <br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 상속 (Inheritance)
+
+<br>
+
+### 생성자와 소멸자
+
+```
+/*
+ * Constructor, Destructor
+ */
+
+class A {
+    public function __construct() {
+        var_dump(__METHOD__);
+    }
+
+    public function __destruct() {
+        var_dump(__METHOD__);
+    }
+}
+
+$a = new A();
+var_dump('Hello, world');
+
+/*
+ * "A::__construct"
+ * "Hello, world"
+ * "A::__destruct"
+ */
+
+
+ $a = new A();
+ unset($a);
+ var_dump('Hello, world');
+
+/*
+ * "A::__construct"
+ * "A::__destruct"
+ * "Hello, world"
+ */
+```
+
+```
+/*
+ * Constructor Parameters
+ */
+
+class B {
+    public $message;
+
+    public function __construct($message) {
+        $this->message = $message;
+    }
+}
+
+$b =  new B('Hello, world');
+```
+
+```
+/*
+ * Inherit
+ */
+
+class C extends A {
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function __destruct() {
+        parent::__destruct();
+    }
+}
+
+$c = new C();
+```
+
+<br>
+
+### Final
+
+```
+/*
+ * Final
+ */
+
+class A {
+    public $message;
+
+    public final function foo() {
+        // 상속 시 오버라이드(재정의) 금지
+    }
+}
+
+final class B {
+    // 상속 금지 (상속을 막을 때 사용)
+}
+```
+
+<br>
+
+### 가시성
+
+```
+/*
+ * Visibility
+ */
+
+class A {
+    public $public = 'public';
+    protected $protected = 'protected';
+    private $private = 'private';
+}
+
+$a = new A();
+var_dump($a->public);  // (o)
+var_dump($a->protected);  // (x)
+var_dump($a->private);  // (x)
+
+class B extends A {
+    public function foo() {
+        return $this->protected;
+    }
+}
+
+$b = new B();
+var_dump($b->foo());  // (o)
+
+class C {
+    private $message = 'Hello, world';
+    private static $instance;
+
+    private function __construct() {
+        var_dump($this->message);
+    }
+
+    public static function getInstance() {
+        return new self();
+    }
+}
+
+$c = C::getInstance();
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 추상화 (Abstraction)
