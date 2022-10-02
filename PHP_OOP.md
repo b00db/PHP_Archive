@@ -8,6 +8,10 @@ PHP OOP Syntax 저장소입니다.
 
 <br>
 
+## [Ⅰ. 클래스 기초](#class)
+
+<br>
+
 <br><br>
 
 ## [메인페이지로 돌아가기](README.md)

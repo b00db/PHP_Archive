@@ -8,11 +8,11 @@
 
 <br>
 
-## [Ⅰ. Error Reporting](#✒️-error-reporting)
+## [Ⅰ. Error Reporting](#phpini)
 
 <br>
 
-## [Ⅱ. File](#✒️-file)
+## [Ⅱ. File](#file-uploads)
 
 <br>
 
