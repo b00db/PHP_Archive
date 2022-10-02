@@ -10,6 +10,8 @@ PHP OOP Syntax 저장소입니다.
 
 ## [Ⅰ. 클래스 기초](#class)
 
+## [Ⅱ. 정적 메서드와 늦은 정적 바인딩(Static)](#static)
+
 <br>
 
 <br><br>
@@ -172,3 +174,61 @@ var_dump($b->create()->foo());  // NULL
 ## [이 페이지의 맨 위로 이동](#contents)
 
 <br><br><br>
+
+## ✒️ 정적 메서드와 늦은 정적 바인딩 (Static)
+
+<br>
+
+### Static
+
+```
+/*
+ * Static
+ */
+
+class A {
+    public static $message = 'Hello, world';
+
+    public static function foo() {
+        return self::$message;
+    }
+}
+
+var_dump(A::foo());
+var_dump(A::$message);
+```
+
+<br>
+
+### Static Binding
+
+```
+/*
+ * Static Binding
+ */
+
+class A {
+    pubilc static function foo() {
+        static::who();
+    }
+
+    public static function who() {
+        var_dump(__CLASS__);
+    }
+}
+
+class B extends A {
+    public static function test() {
+        parent::foo();
+    }
+
+    public  static function who() {
+        var_dump(__CLASS__);
+    }
+}
+
+$b = new B();
+$b->test();  // "B"
+```
+
+<br>
