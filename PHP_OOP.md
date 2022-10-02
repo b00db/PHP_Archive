@@ -26,7 +26,7 @@ PHP OOP Syntax 저장소입니다.
 
 <br>
 
-### - Class
+### Class
 
 ```
 /*
@@ -47,7 +47,7 @@ $a = new A();
 
 <br>
 
-### - Features
+### Features
 
 ```
 /*
@@ -144,7 +144,7 @@ var_dump($d instanceof E);  // bool(false)
 
 <br>
 
-### - Anonymous Classes (익명 클래스)
+### Anonymous Classes (익명 클래스)
 
 ```
 /*
