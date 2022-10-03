@@ -14,6 +14,8 @@ PHP 관련 저장소 입니다.
 
 ### [4. PHP 심화 문법](PHP_OOP.md)
 
+### [5. PHP 내장 함수 및 클래스 심화](PHP_CLASS.md)
+
 <br><br>
 
 ## Documentations
