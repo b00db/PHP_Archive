@@ -394,3 +394,134 @@ $c = C::getInstance();
 <br><br><br>
 
 ## ✒️ 추상화 (Abstraction)
+
+<br>
+
+### 추상 클래스
+
+```
+/*
+ * Class Abstraction
+ */
+
+absctract class A {
+    protected $message = 'Hello, world';
+
+    public function sayHello() {
+        return $this->message;
+    }
+
+    abstract public function foo();
+}
+
+// new A();  // (x) : 추상 클래스는 인스턴스화 시킬 수 없음. 상속을 받아서 처리.
+
+class B extends A {
+    public function foo() {
+        return __CLASS__;
+    }
+}
+
+$b = new B();
+var_dump($b->foo());  // "B"
+var_dump($b->sayHello());  // "Hello, world"
+```
+
+<br>
+
+### 인터페이스
+
+```
+/*
+ * Interface
+ */
+
+interface A {
+    public function foo();
+
+}
+
+class B implements A {
+    public function foo() {
+        return __CLASS__;
+    }
+}
+
+function foo(A $a) {
+    return $a->foo();
+}
+
+$b = new B();
+var_dump(foo($b));  // "B"
+```
+
+<br>
+
+### 트레이트
+
+: PHP는 다중 상속을 지원하지 않음. 대신 트레이트를 지원함.
+
+```
+/*
+ * Trait
+ */
+
+trait A {
+    public $message = 'Hello, world';
+
+    public function sayHello() {
+        return $this->message;
+    }
+}
+
+trait AA {
+    public function sayHello() {
+        return __TRAIT__;
+    }
+}
+
+trait AAA {
+    use A, AA {
+        A::sayHello insteadof AA;
+    }
+}
+
+class B {
+    // use A;
+    use AAA;
+}
+
+$b = new B();
+var_dump($b->sayHello());
+
+/*
+ * 우선 순위
+ */
+
+class C {
+    private $message = 'Hello, world';
+
+    public function sayHello() {
+        return $this->message;
+    }
+}
+
+trait D {
+    public function sayHello() {
+        return __TRAIT__;
+    }
+}
+
+class E extends C {
+    use D;
+
+    public function sayHello() {
+        return __CLASS__;
+    }
+}
+
+$e = new E();
+var_dump($e->sayHello());  // "E" // 여기서의 우선순위 : 재정의 -> 트레이트 -> 상속
+```
+
+<br>
