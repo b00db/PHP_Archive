@@ -18,6 +18,10 @@ PHP OOP Syntax 저장소입니다.
 
 ## [Ⅴ. 매직 메서드](#매직-메서드-메서드-관련)
 
+## [Ⅵ. 네임스페이스](#네임스페이스)
+
+## [Ⅶ. 예외](#예외)
+
 <br>
 
 <br><br>
@@ -664,3 +668,127 @@ var_dump(unserialize($serialized));  // "class B { private $message => "Hello, w
 ## ✒️ 네임스페이스 (Namespaces)
 
 <br>
+
+### 네임스페이스
+
+```
+/*
+ * Namespaces
+ */
+
+namespace A {  // 파일 하나에 여러개의 네임스페이스 가능하긴 하나, 파일 하나당 네임스페이스 하나 권장
+    const MESSAGE = __NAMESPACE__;
+
+    class A {
+        public function foo() {
+            return __METHOD__;
+        }
+    }
+
+    function foo() {
+        return __FUNCTION__;
+    }
+}
+
+namespace A\B {  // 자식 네임스페이스
+    class A {
+        public function foo() {
+            return __METHOD__;
+        }
+    }
+}
+
+namespace {  // 글로벌 네임스페이스
+    use A\A;
+    use A\B\A as AB;
+
+    $a = new A\A();
+    var_dump($a->foo());  // "A\A::foo"
+
+    $ab = new AB();
+    var_dump($ab->foo());  // "A\B\A::foo"
+
+    use function A\foo;
+    var_dump(foo());  // "A\foo"
+
+    use const A\MESSAGE;
+    var_dump(MESSAGE);  "A"
+}
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 예외 (Exceptions)
+
+<br>
+
+### 예외
+
+```
+/*
+ * Exception
+ */
+
+try {
+    throw new Exception('Hello, world');
+} catch (Exception $e) {
+    var_dump($e->getMessage());  // "Hello, world"
+} finally {
+    var_dump('Finally');  // "Finally"
+}
+```
+
+```
+set_error_handler(function ($errno, $errstr) {
+    throw new ErrorException($errstr, $errno);
+});
+
+set_exception_handler(fn (Exception $e) => var_dump($e->getMessage()));
+```
+
+```
+/*
+ * Error
+ */
+try {
+    new MyClass();
+} catch (Error $e) {
+    var_dump($e->getMessage());  // fatal error 도 처리 가능
+}
+```
+
+<br>
+
+### 예외 (상속)
+
+```
+/*
+ * Exception extends
+ */
+
+class MyException extends Exception {
+
+}
+
+try {
+    throw new MyException('Hello, world');
+} catch (Exception $e) {
+    var_dump($e->getMessage());  // "Hello, world"
+}
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️
