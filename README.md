@@ -25,3 +25,7 @@ PHP 관련 저장소 입니다.
 ### - Extensions : https://www.php.net/manual/en/extensions.membership.php
 
 ### - Security : https://www.php.net/manual/en/security.php
+
+### - PSR(PHP Standards Recommendations) : https://www.php-fig.org/psr/
+
+### - 한글판 PHP Standards Recommendations : https://psr.kkame.net/
