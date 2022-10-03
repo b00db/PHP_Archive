@@ -22,6 +22,12 @@ PHP OOP Syntax 저장소입니다.
 
 ## [Ⅶ. 예외](#예외)
 
+## [Ⅷ. 제네레이터](#제네레이터)
+
+## [Ⅸ. 참조](#참조)
+
+## [Ⅹ. 객체 비교와 복사](#객체-비교)
+
 <br>
 
 <br><br>
@@ -791,4 +797,185 @@ try {
 
 <br><br><br>
 
-## ✒️
+## ✒️ 제네레이터 (Generators)
+
+<br>
+
+### 제네레이터
+
+```
+function gen() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+$gen = gen();
+
+var_dump($gen->current());  // "1"
+$gen->next();
+var_dump($gen->current());  // "2"
+
+foreach ($gen as $number) {
+    var_dump($number);  // "1", "2", "3"
+}
+
+function get2() {
+    yield 'message' => 'Hello, world';
+}
+
+foreach (get2() as $key => $value) {
+    var_dump($key, $value); // "message", "Hello, world"
+}
+
+function gen3() {
+    $data = yield;
+    yield $data;
+}
+
+$gen3 = gen3();
+
+var_dump($gen3->current());  // NULL
+
+var_dump($gen3->send('Hello, world'));  // "Hello, world"
+var_dump($get3->current());  // "Hello, world"
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 참조 (References)
+
+<br>
+
+### 참조
+
+```
+/*
+ * References
+ */
+
+$message = 'Hello, world';
+$sayHello =& $message;
+
+$sayHello = 'Who are you?';
+var_dump($message);  // "Who are you?"
+```
+
+```
+/*
+ * Functions and Methods
+ */
+
+function foo() {
+    // global $message;
+    $message =& $GLOBALS['message'];
+    $message = 'Bye';
+}
+
+foo();
+var_dump($message);  // "Bye"
+
+function foo2(&$message) {
+    $message = 'Hello, world';
+}
+
+foo2($message);
+var_dump($message);  // "Hello, world"
+```
+
+```
+/*
+ * Unset
+ */
+
+$sayHello =& $message;
+unset($sayHello);
+var_dump($message);  "Hello, world"  // 참조는 해제한다해서 연결되어있는 변수까지 해체시키는 것은 아니고, 그 이름만 날라간다
+```
+
+<br>
+
+### WeakReference
+
+```
+/*
+ * WeakReference
+ */
+
+$class = new stdClass();
+
+$weakRef = WeakReference::create($class);
+var_dump($weakRef->get());  // "class stdClass"
+
+unset($class);
+
+var_dump($weakRef->get());  // NULL
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 객체 비교와 복사 (Cloning)
+
+<br>
+
+### 객체 비교
+
+```
+/*
+ * Compare
+ */
+
+$class1 = new stdClass();
+$class2 = new stdClass();
+
+var_dump($class1 == $class2);  // bool(true);
+var_dump($class1 === $class2);  // bool(flase);
+```
+
+<br>
+
+### 객체 복사
+
+```
+/*
+ * Copy
+ */
+
+// $class3 = $class1 = <Object Id>
+$class3 = $class1;
+
+$class3->sayHello = 'Hello, world';
+var_dump($class1->sayHello);  // "Hello, world"
+```
+
+```
+/*
+ * 참조
+ */
+
+// ($class3, $class1) = <Object Id>
+$class3 =& $class1;
+
+$class3 = 'Hello, world';
+var_dump($class1);  // "Hello, world"  // 객체 복사에선 class1은 안변함.
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
