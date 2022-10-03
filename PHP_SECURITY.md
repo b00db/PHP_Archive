@@ -8,11 +8,11 @@
 
 <br>
 
-## [Ⅰ. Error Reporting](#phpini)
-
-<br>
+## [Ⅰ. Error Reporting](#1-displayerrors--off)
 
 ## [Ⅱ. File](#file-uploads)
+
+## [Ⅲ. Sessions](#cookie)
 
 <br>
 
@@ -66,7 +66,7 @@
 
 <br>
 
-## - File Uploads
+### File Uploads
 
 ```
 switch ($_SERVER['REQUEST_METHOD']) {
@@ -95,7 +95,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 <br>
 
-## - File Downloads
+### File Downloads
 
 ```
 $path = filter_input(INPUT_GET, 'path', FILTER_SANITIZE_STRING);
@@ -118,3 +118,101 @@ if (file_exists($filepath)) {
 ```
 
 <br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동하기](#contents)
+
+<br><br><br>
+
+## ✒️ Sessions
+
+<br>
+
+### Cookie
+
+```
+/*
+ * php.ini
+ *
+ * /?PHPSESSID=123456789
+ *
+ * session.use_strict_mode = 1
+ *
+ * session.use_cookies = 1
+ * session.use_only_cookies = 1
+ */
+```
+
+<br>
+
+### Javascript Injection
+
+```
+/*
+ * php.ini
+ *
+ * session.cookie_httpOnly = 1
+ */
+echo '<script>document.write(document.cookie)</script>';
+```
+
+<br>
+
+### Https
+
+```
+/*
+ * php.ini
+ *
+ * session.cookie_secure
+ */
+```
+
+<br>
+
+### Cookie time, GC
+
+```
+/*
+ * php.ini
+ *
+ * session.gc_maxlifetime
+ */
+
+session_save_path(dirname(__DIR__) . '/sessions');
+
+ini_set('session.gc_maxlifetime', 3);
+session_set_cookie_params(3);
+
+session_start();
+session_gc();
+```
+
+<br>
+
+### Timestamp based session
+
+```
+$_SESSION['timestamp'] = $_SERVER['REQUEST_TIME'];
+
+// sleep(10);
+$time = strtotime('+10 seconds');
+
+$diff = $time - $_SESSION['timestamp'];
+$sessionTimeOut = 10;
+
+if ($diff >= $sessionTimeOut) {
+    echo 'Session Timeout';
+    exit;
+}
+```
+
+<br>
+
+### Renewal session
+
+```
+session_regenerate_id();
+$_SESSION['timestamp'] = time();
+```
