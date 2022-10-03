@@ -14,6 +14,10 @@ PHP OOP Syntax 저장소입니다.
 
 ## [Ⅲ. 상속](#생성자와-소멸자)
 
+## [Ⅳ. 추상화](#추상-클래스)
+
+## [Ⅴ. 매직 메서드](#매직-메서드-메서드-관련)
+
 <br>
 
 <br><br>
@@ -523,5 +527,140 @@ class E extends C {
 $e = new E();
 var_dump($e->sayHello());  // "E" // 여기서의 우선순위 : 재정의 -> 트레이트 -> 상속
 ```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 매직 매서드 (Magic Methods)
+
+<br>
+
+### 매직 메서드 (메서드 관련)
+
+```
+/*
+ * Magic Methods: Methods
+ */
+
+class A {
+    public function __call($name, $args) {
+        var_dump($name, $args);
+    }
+
+    public function __callStatic($name, $args) {
+        var_dump($name, $args);
+    }
+
+    public function __invoke(...$args) {
+        var_dump($args);
+    }
+}
+
+$a = new A();
+$a('Hello, world', 'Who are you?');  // "Hello, world", "Who are you?"
+
+$a->foo('Hello, world');  // "foo", "Hello, world"
+
+A::foo();  // "foo"
+```
+
+<br>
+
+### 매직 메서드 (프로퍼티 관련)
+
+```
+/*
+ * Magic Methods: Property
+ */
+
+class A {
+    private $message;
+
+    public function _isset($name) {
+        return isset($this->$name);
+    }
+
+    public function _unset($name) {
+        unset($this->$name);
+    }
+
+    public function __set($name, $value) {
+        $this->$name = $value;
+    }
+
+    public function __get($name) {
+        return $this->$name;
+    }
+}
+
+$a = new A();
+// isset($a->message);
+// unset($a->message);
+
+$a->message = 'Hello, world';
+var_dump($a->message);
+```
+
+<br>
+
+### 매직 메서드 (직렬화 관련)
+
+```
+/*
+ * Magic Methods: Serialize
+ */
+
+class A {
+    private $message = 'Hello, world';
+
+    public function __sleep() {
+        return [ 'message' ];
+    }
+
+    public function __wakeup() {
+        var_dump(__METHOD__);
+    }
+}
+
+$a = new A();
+
+$serialized = serialize($a);
+var_dump($serialized);  // "Hello, world"
+var_dump(unserialize($serialized));  // "class A { private $message => "Hello, world" }"
+
+
+class A implements Serializable {
+    private $message = 'Hello, world';
+
+    public function serialize() {
+        return serialize($this->message);
+    }
+
+    public function unserialize($serialized) {
+        $this->message = unserialize($serialized);
+    }
+}
+
+$b = new B();
+
+$serialized = serialize($b);
+var_dump($serialized);  // "Hello, world"
+var_dump(unserialize($serialized));  // "class B { private $message => "Hello, world" }"
+```
+
+<br>
+
+<br><br>
+
+## [이 페이지의 맨 위로 이동](#contents)
+
+<br><br><br>
+
+## ✒️ 네임스페이스 (Namespaces)
 
 <br>
